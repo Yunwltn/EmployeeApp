@@ -10,6 +10,11 @@ public class Employee implements Serializable {
     public int age;
 //    public String profileImage;
 
+    public Employee(int salary, int age){
+        this.salary = salary;
+        this.age = age;
+    }
+
     public Employee(String name, int salary, int age){
         this.name = name;
         this.salary = salary;

@@ -2,6 +2,7 @@ package com.yunwltn98.employeeapp.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,10 +78,12 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
                     Employee employee = employeeList.get(index);
 
                     Intent intent = new Intent(context, EditActivity.class);
+                    intent.putExtra("index", index);
                     intent.putExtra("employee", employee);
                     context.startActivity(intent);
                 }
             });
+
         }
     }
 }

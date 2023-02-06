@@ -50,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
                 employeeList.add(0, employee);
                 adapter.notifyDataSetChanged();
             }
+
+            if (result.getResultCode() == 0) {
+                Employee employee = (Employee) result.getData().getSerializableExtra("employee");
+
+            }
         }
     });
 
