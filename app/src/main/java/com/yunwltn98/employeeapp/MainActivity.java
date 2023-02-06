@@ -161,9 +161,7 @@ public class MainActivity extends AppCompatActivity {
 
         } else if (itemId == R.id.menuAbout) {
             // About 실행하는 코드
-
         }
-
         return super.onOptionsItemSelected(item);
     }
 }
