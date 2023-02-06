@@ -35,7 +35,7 @@
                     android:textSize="18sp" />
 
                 <ImageView
-                    android:id="@+id/ingDelete"
+                    android:id="@+id/imgDelete"
                     android:layout_width="35dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
