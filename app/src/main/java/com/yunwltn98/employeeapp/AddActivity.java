@@ -26,6 +26,10 @@ public class AddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
+        getSupportActionBar().setTitle("직원 추가");
+        // 아래 코드는 백버튼(돌아갈 수 있는 화살표)만 화면에 보여준다
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         editName = findViewById(R.id.editName);
         editAge = findViewById(R.id.editAge);
         editSalary = findViewById(R.id.editSalary);
@@ -69,4 +73,10 @@ public class AddActivity extends AppCompatActivity {
 
     }
 
+    // 액션바의 백버튼을 눌렀을때의 이벤트를 처리하는 함수 오버라이딩하기
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
 }

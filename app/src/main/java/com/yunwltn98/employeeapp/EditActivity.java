@@ -28,6 +28,9 @@ public class EditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
 
+        getSupportActionBar().setTitle("직원 정보 수정");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         editAge = findViewById(R.id.editAge);
         editSalary = findViewById(R.id.editSalary);
         btnSave = findViewById(R.id.btnSave);
@@ -66,5 +69,11 @@ public class EditActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }
