@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Employee> employeeList = new ArrayList<>();
     final String URL = "https://block1-image-test.s3.ap-northeast-2.amazonaws.com";
 
-    ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+    public ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
         @Override
         public void onActivityResult(ActivityResult result) {
             // 액티비티 실행한 후 이 액티비티로 돌아왔을때 할일
@@ -49,11 +49,11 @@ public class MainActivity extends AppCompatActivity {
                 Employee employee = (Employee) result.getData().getSerializableExtra("employee");
                 employeeList.add(0, employee);
                 adapter.notifyDataSetChanged();
-            }
-
-            if (result.getResultCode() == 0) {
+            } else if (result.getResultCode() == EditActivity.EDIT) {
                 Employee employee = (Employee) result.getData().getSerializableExtra("employee");
-
+                int index = result.getData().getIntExtra("index", -1);
+                employeeList.set(index, employee);
+                adapter.notifyDataSetChanged();
             }
         }
     });

@@ -20,6 +20,8 @@ public class EditActivity extends AppCompatActivity {
     EditText editSalary;
     Button btnSave;
     Employee employee;
+    public final static int EDIT = 101;
+    int index;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class EditActivity extends AppCompatActivity {
         editSalary = findViewById(R.id.editSalary);
         btnSave = findViewById(R.id.btnSave);
 
+        index = getIntent().getIntExtra("index", -1);
         employee = (Employee) getIntent().getSerializableExtra("employee");
         editAge.setText(employee.age+"");
         editSalary.setText(employee.salary+"");
@@ -46,14 +49,17 @@ public class EditActivity extends AppCompatActivity {
                     return;
                 }
 
-                // 입력한 데이터 저장
+                // 입력한 데이터 변경
                 int salary = Integer.valueOf(strSalary).intValue();
                 int age = Integer.valueOf(strAge).intValue();
-                Employee employee = new Employee(salary, age);
+
+                employee.age = age;
+                employee.salary = salary;
 
                 Intent intent = new Intent();
                 intent.putExtra("employee", employee);
-                setResult(0, intent);
+                intent.putExtra("index", index);
+                setResult(EDIT, intent);
 
                 // 창 종료 메인으로 돌아가기
                 Toast.makeText(EditActivity.this, "직원 정보가 수정되었습니다", Toast.LENGTH_SHORT).show();

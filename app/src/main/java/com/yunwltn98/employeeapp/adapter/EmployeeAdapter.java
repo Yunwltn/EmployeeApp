@@ -80,7 +80,9 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
                     Intent intent = new Intent(context, EditActivity.class);
                     intent.putExtra("index", index);
                     intent.putExtra("employee", employee);
-                    context.startActivity(intent);
+
+                    // 메인 액티비티 코드 가져오기
+                    ((MainActivity)context).launcher.launch(intent);
                 }
             });
 
